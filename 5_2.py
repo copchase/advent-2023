@@ -28,7 +28,13 @@ class MapTriplet:
         outgoing_length: int = outgoing_max - outgoing_min
         dst_offset: int = outgoing_min - self._src_start
         # if so, we must only map starting from that offset and beyond
-        return range(self._dst_start + dst_offset, self._dst_start + dst_offset + outgoing_length), outgoing_max
+        return (
+            range(
+                self._dst_start + dst_offset,
+                self._dst_start + dst_offset + outgoing_length,
+            ),
+            outgoing_max,
+        )
 
     def __repr__(self) -> str:
         return f"src_start: {self._src_start} dst_start: {self._dst_start} range_length: {self._range_len}"

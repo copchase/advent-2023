@@ -141,6 +141,5 @@ def main() -> None:
     print(ways_to_beat)
 
 
-
 if __name__ == "__main__":
     main()
