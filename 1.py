@@ -16,12 +16,14 @@ def main():
 
     print(sum)
 
+
 def find_first_digit(s: str) -> int:
     for char in s:
         if char.isdigit():
             return int(char)
-        
+
     raise RuntimeError("no digit in string")
+
 
 def find_last_digit(s: str) -> int:
     s_frag: list[str] = list(s)
@@ -30,22 +32,24 @@ def find_last_digit(s: str) -> int:
     for char in s_frag:
         if char.isdigit():
             return int(char)
-        
+
     raise RuntimeError("no digit in string")
 
+
 def find_first_digit_as_number_or_word(s: str) -> int:
-    match: list[str] = re.findall(r"^.*?(\d|one|two|three|four|five|six|seven|eight|nine)", s)    
+    match: list[str] = re.findall(r"^.*?(\d|one|two|three|four|five|six|seven|eight|nine)", s)
     return convert_to_number(match[0])
 
 
 def find_last_digit_as_number_or_word(s: str) -> int:
-    match: list[str] = re.findall(r".*(\d|one|two|three|four|five|six|seven|eight|nine).*$", s)   
+    match: list[str] = re.findall(r".*(\d|one|two|three|four|five|six|seven|eight|nine).*$", s)
     return convert_to_number(match[0])
+
 
 def convert_to_number(x: str) -> int:
     if len(x) == 1:
         return int(x)
-    
+
     mapper: dict[str, int] = {
         "one": 1,
         "two": 2,
@@ -59,6 +63,7 @@ def convert_to_number(x: str) -> int:
     }
 
     return mapper[x]
+
 
 if __name__ == "__main__":
     main()

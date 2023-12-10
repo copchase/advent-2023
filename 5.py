@@ -1,6 +1,7 @@
-from io import TextIOWrapper
-from  typing import Self
 import logging
+from io import TextIOWrapper
+from typing import Self
+
 
 class MapTriplet:
     def __init__(self: Self, src_start: int, dst_start: int, range_len: int) -> None:
@@ -22,9 +23,9 @@ class MapTriplet:
 
         return 0, False
 
-    
     def __repr__(self) -> str:
         return f"src_start: {self._src_start} dst_start: {self._dst_start} range_length: {self._range_len}"
+
 
 class MapTripletList:
     def __init__(self: Self, s: str) -> None:
@@ -62,9 +63,9 @@ class MapTripletList:
             dst, found = triplet.find_dst(src)
             if found:
                 return dst
-            
+
         return src
-    
+
 
 class Mapper:
     def __init__(self: Self) -> None:
@@ -75,7 +76,7 @@ class Mapper:
 
     def fully_map(self: Self, src_values: list[int]) -> list[int]:
         """
-        For a list of src values, map them to dst values for each transforming 
+        For a list of src values, map them to dst values for each transforming
         MapTripletList that the Mapper holds
         """
         out: list[int] = src_values.copy()
@@ -84,18 +85,17 @@ class Mapper:
             out = [transformer.find_dst(src) for src in out]
 
         return out
-    
+
     def map(self: Self, src: int) -> int:
         dst: int = src
         for transformer in self._transformers:
             dst = transformer.find_dst(dst)
 
         return dst
-    
+
     def map_range(self: Self, r: range) -> list[range]:
         """For a given range, returns a list of corresponding dst ranges"""
         return []
-
 
 
 def main() -> None:
@@ -126,6 +126,7 @@ def main() -> None:
     min_location: int = min(locations)
 
     print(min_location)
+
 
 def parse_seeds(seeds_str: str) -> list[int]:
     # part 1

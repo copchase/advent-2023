@@ -1,5 +1,6 @@
 from typing import Self
 
+
 class Game:
     def __init__(self: Self, s: str) -> None:
         s = s.removesuffix("\n")
@@ -23,9 +24,10 @@ class Game:
 
     def __repr__(self: Self) -> str:
         return f"Game {self.game_id}: {self.max_red} red, {self.max_green} green, {self.max_blue} blue"
-    
+
     def power(self: Self) -> int:
         return self.max_red * self.max_green * self.max_blue
+
 
 def main():
     file = open("2.txt", "rt")
@@ -47,8 +49,6 @@ def main():
     print(sum)
 
 
-
-
 def filter_games_matching_max_colors(games: list[Game]) -> list[Game]:
     allowed_max_red: int = 12
     allowed_max_green: int = 13
@@ -58,7 +58,7 @@ def filter_games_matching_max_colors(games: list[Game]) -> list[Game]:
     for game in games:
         if game.max_red > allowed_max_red or game.max_green > allowed_max_green or game.max_blue > allowed_max_blue:
             continue
-        
+
         filtered_games.append(game)
 
     return filtered_games
@@ -84,7 +84,6 @@ def get_count_of_colors(s: str) -> tuple[int, int, int]:
         print(red, green, blue)
 
     return red, green, blue
-
 
 
 if __name__ == "__main__":

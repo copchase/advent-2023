@@ -1,5 +1,5 @@
 from io import TextIOWrapper
-    
+
 
 def main() -> None:
     file: TextIOWrapper = open("3.txt", "rt")
@@ -22,7 +22,8 @@ def main() -> None:
 
     print(total)
 
- # Returns a set of coordinates that neighbor symbols
+
+# Returns a set of coordinates that neighbor symbols
 def parse_by_symbol(s: str) -> set[str]:
     neighbor_set: set[str] = set()
     row_idx: int = 1
@@ -45,8 +46,8 @@ def parse_by_symbol(s: str) -> set[str]:
 
         column_idx += 1
 
-
     return neighbor_set
+
 
 def sum_the_numbers(ns: set[str], s: str) -> int:
     total: int = 0
@@ -99,9 +100,8 @@ def sum_the_numbers(ns: set[str], s: str) -> int:
 
         column_idx += 1
 
-            
-
     return total
+
 
 def add_numbers_to_symbol_list(nbs: dict[str, list[int]], s: str) -> None:
     row_idx: int = 1
@@ -146,7 +146,6 @@ def add_numbers_to_symbol_list(nbs: dict[str, list[int]], s: str) -> None:
             num_length = 0
 
         column_idx += 1
-
 
 
 if __name__ == "__main__":

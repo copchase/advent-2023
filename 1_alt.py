@@ -13,8 +13,24 @@ def main():
 
 def find_first_and_last_digits_in_string(s: str) -> tuple[int, int]:
     key_words: list[str] = [
-        "1", "2", "3", "4", "5", "6", "7", "8", "9",
-        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
     ]
 
     # track starting index and length, like C pointers to char arrays
@@ -23,8 +39,8 @@ def find_first_and_last_digits_in_string(s: str) -> tuple[int, int]:
 
     for word in key_words:
         idx: int = -1
-        while True: # words can repeat, search for all of them
-            idx = s.find(word, idx+1)
+        while True:  # words can repeat, search for all of them
+            idx = s.find(word, idx + 1)
 
             if idx == -1:
                 break
@@ -36,15 +52,15 @@ def find_first_and_last_digits_in_string(s: str) -> tuple[int, int]:
     min_idx: int = min(idxMap.keys())
     max_idx: int = max(idxMap.keys())
 
-    first_digit: int = convert_to_number(s[min_idx:min_idx+idxMap[min_idx]])
-    last_digit: int = convert_to_number(s[max_idx:max_idx+idxMap[max_idx]])
+    first_digit: int = convert_to_number(s[min_idx : min_idx + idxMap[min_idx]])
+    last_digit: int = convert_to_number(s[max_idx : max_idx + idxMap[max_idx]])
     return first_digit, last_digit
 
 
 def convert_to_number(x: str) -> int:
     if len(x) == 1:
         return int(x)
-    
+
     mapper: dict[str, int] = {
         "one": 1,
         "two": 2,
